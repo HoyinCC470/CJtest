@@ -19,6 +19,9 @@ RUN npm run build
 # 使用 Nginx 作为生产服务器
 FROM nginx:alpine
 
+# 删除默认配置
+RUN rm -f /etc/nginx/conf.d/default.conf
+
 # 复制自定义 Nginx 配置
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
