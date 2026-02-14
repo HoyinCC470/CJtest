@@ -1,0 +1,317 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 40 20% 97%;
+    --foreground: 0 0% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 10%;
+    --primary: 14 92% 53%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 42 90% 61%;
+    --secondary-foreground: 0 0% 10%;
+    --muted: 40 15% 94%;
+    --muted-foreground: 0 0% 40%;
+    --accent: 330 70% 63%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 40 15% 88%;
+    --input: 40 15% 88%;
+    --ring: 14 92% 53%;
+    --radius: 1rem;
+
+    /* Custom colors - Spring Festival theme */
+    --cinnabar: #f54b1a;
+    --gold: #f5c242;
+    --dark: #1a1a1a;
+    --light: #ffffff;
+    --bg-warm: #f5f5f5;
+    --bg-ivory: #faf8f5;
+    --pink-purple: #e85a9b;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased font-semibold;
+    font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background-color: var(--bg-warm);
+    overflow-x: hidden;
+  }
+
+  h1 {
+    @apply font-extrabold;
+  }
+
+  h2 {
+    @apply font-extrabold;
+  }
+
+  h3 {
+    @apply font-extrabold;
+  }
+
+  h4 {
+    @apply font-extrabold;
+  }
+
+  h5 {
+    @apply font-extrabold;
+  }
+
+  h6 {
+    @apply font-extrabold;
+  }
+
+  button {
+    @apply font-semibold;
+  }
+
+  p {
+    @apply font-semibold;
+  }
+
+  span {
+    @apply font-semibold;
+  }
+
+  div {
+    @apply font-semibold;
+  }
+
+  .text-lg {
+    @apply font-semibold;
+  }
+}
+
+@layer components {
+  /* Text gradient - subtle */
+  .text-gradient {
+    background: linear-gradient(135deg, var(--cinnabar) 0%, var(--gold) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Primary button - clean with soft shadow */
+  .btn-primary {
+    @apply px-6 py-3 sm:px-8 sm:py-4 rounded-full font-semibold text-white transition-all duration-300 text-sm sm:text-base;
+    background: linear-gradient(135deg, var(--cinnabar) 0%, #ff6b3d 100%);
+    box-shadow: 0 4px 20px rgba(245, 75, 26, 0.15);
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(245, 75, 26, 0.25);
+  }
+
+  /* Secondary button - outlined */
+  .btn-secondary {
+    @apply px-6 py-3 sm:px-8 sm:py-4 rounded-full font-semibold transition-all duration-300 text-sm sm:text-base;
+    background: white;
+    color: var(--dark);
+    border: 1.5px solid var(--gold);
+  }
+
+  .btn-secondary:hover {
+    background: var(--gold);
+    color: var(--dark);
+    transform: translateY(-2px);
+  }
+
+  /* Card - minimal with subtle border and shadow */
+  .card-minimal {
+    @apply bg-white rounded-2xl overflow-hidden transition-all duration-300;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+  }
+
+  .card-minimal:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+  }
+
+  /* Tags - clean and simple */
+  .tag {
+    @apply inline-flex items-center gap-1 px-3 py-1 sm:px-4 sm:py-1.5 rounded-full text-xs font-medium;
+  }
+
+  .tag-hot {
+    @apply tag;
+    background: rgba(245, 75, 26, 0.08);
+    color: var(--cinnabar);
+  }
+
+  .tag-new {
+    @apply tag;
+    background: rgba(245, 194, 66, 0.15);
+    color: #b8860b;
+  }
+
+  .tag-limited {
+    @apply tag;
+    background: rgba(232, 90, 155, 0.08);
+    color: var(--pink-purple);
+  }
+
+  /* Glass effect - subtle */
+  .glass {
+    backdrop-filter: blur(12px) saturate(180%);
+    background: rgba(255, 255, 255, 0.85);
+  }
+
+  /* Section spacing - mobile first */
+  .section-padding {
+    @apply py-16 sm:py-20 lg:py-28;
+  }
+
+  /* Container padding - mobile first */
+  .container-padding {
+    @apply px-5 sm:px-6 lg:px-8 xl:px-12;
+  }
+
+  /* 3D Perspective */
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+
+  .transform-style-3d {
+    transform-style: preserve-3d;
+  }
+
+  /* Slide in from right animation */
+  @keyframes slideInFromRight {
+    from {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  .animate-slide-in {
+    animation: slideInFromRight 0.3s ease-out forwards;
+  }
+
+  /* Slide up with pop effect animation */
+  @keyframes slideUpPop {
+    0% {
+      transform: translateY(100%) scale(0.8);
+      opacity: 0;
+    }
+    70% {
+      transform: translateY(-10%) scale(1.05);
+    }
+    100% {
+      transform: translateY(0) scale(1);
+      opacity: 1;
+    }
+  }
+
+  .animate-slide-up {
+    animation: slideUpPop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  }
+
+  /* Fade in/out animation */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.3s ease-in forwards;
+  }
+
+  .animate-fade-out {
+    animation: fadeOut 0.3s ease-out forwards;
+  }
+
+  /* Grow width animation for progress bars */
+  @keyframes growWidth {
+    from {
+      width: 0%;
+    }
+    to {
+      width: var(--target-width, 0%);
+    }
+  }
+
+  .animate-grow-width {
+    animation: growWidth 1.5s ease-out forwards;
+  }
+
+  /* Screenshot-friendly styles */
+  .screenshot-container {
+    position: absolute !important;
+    left: -9999px !important;
+    top: 0 !important;
+    background-color: #fff !important;
+    transform: none !important;
+    transform-origin: top left !important;
+  }
+
+  .screenshot-element {
+    position: relative !important;
+    transform: none !important;
+    transform-origin: top left !important;
+    overflow: visible !important;
+  }
+}
+
+/* Custom scrollbar - minimal */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(245, 75, 26, 0.2);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(245, 75, 26, 0.4);
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

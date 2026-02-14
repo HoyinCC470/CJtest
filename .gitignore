@@ -1,0 +1,50 @@
+# Dependencies
+node_modules
+.pnp
+.pnp.js
+
+# Build outputs
+dist
+dist-ssr
+*.local
+
+# Zeabur deployment files
+zeabur-deploy.zip
+zeabur.yaml
+zeabur-deploy-folder/
+DEPLOY_ZEABUR.md
+deploy.sh
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Testing
+coverage
+*.lcov
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Cache
+.cache
+.temp
+.eslintcache
