@@ -10,7 +10,6 @@ dist-ssr
 
 # Zeabur deployment files
 zeabur-deploy.zip
-zeabur.yaml
 zeabur-deploy-folder/
 DEPLOY_ZEABUR.md
 deploy.sh
