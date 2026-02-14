@@ -19,18 +19,11 @@ RUN npm run build
 # 使用 Nginx 作为生产服务器
 FROM nginx:alpine
 
+# 复制自定义 Nginx 配置
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
 # 复制构建结果到 Nginx 目录
 COPY --from=builder /app/dist /usr/share/nginx/html
-
-# 复制自定义 Nginx 配置（支持 SPA 路由）
-RUN echo 'server { \
-    listen 80; \
-    location / { \
-        root /usr/share/nginx/html; \
-        index index.html; \
-        try_files $uri $uri/ /index.html; \
-    } \
-}' > /etc/nginx/conf.d/default.conf
 
 # 暴露端口
 EXPOSE 80
